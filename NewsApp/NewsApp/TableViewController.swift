@@ -9,7 +9,9 @@ import UIKit
 
 class TableViewController: UITableViewController {
         
-    let networkManager = NetworkManager()
+    @IBOutlet weak var button: UIButton!
+    var networkManager = NetworkManager()
+    var newsData: NewsData?
     
     @IBAction func next(_ sender: UIButton) {
         let vc = FullNewsViewController()
@@ -19,6 +21,7 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
+        networkManager.delegate = self
         networkManager.fetchNews()
     }
     
@@ -29,18 +32,36 @@ class TableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 20
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
 
+        configurationCell(for: cell, indexPath)
+        
+        
+//        print(newsData?.status)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 85
+    }
+    
+    private func configurationCell(for cell: TableViewCell, _ indexPath: IndexPath) {
+        if let article = newsData?.articles[indexPath.row] {
+            cell.titleLabel.text = article.title
+            
+            DispatchQueue.global().async{
+                guard let imageUrl = URL(string: article.urlToImage) else {return}
+                guard let imageData = try? Data(contentsOf: imageUrl) else {return}
+                DispatchQueue.main.async {
+                    cell.imageNews.image = UIImage(data: imageData)
+                }
+            }
+        }
     }
     
     /*
@@ -88,4 +109,13 @@ class TableViewController: UITableViewController {
     }
     */
     
+}
+extension TableViewController: NetworkManagerDelegate{
+    func updateInterface(_: NetworkManager, with newsData: NewsData) {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+//            self.newsData = newsData
+        }
+        self.newsData = newsData
+    }
 }

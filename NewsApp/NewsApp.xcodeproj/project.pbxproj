@@ -10,6 +10,7 @@
 		F157AAB8298EEEF00077E86C /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = F157AAB7298EEEF00077E86C /* Api.swift */; };
 		F157AABA298EF9A10077E86C /* NewsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F157AAB9298EF9A10077E86C /* NewsStruct.swift */; };
 		F157AABC298EFF650077E86C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F157AABB298EFF650077E86C /* NetworkManager.swift */; };
+		F157AABE298F04540077E86C /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F157AABD298F04540077E86C /* NewsData.swift */; };
 		F170E6B2298E908000C07E66 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F170E6B0298E908000C07E66 /* TableViewController.swift */; };
 		F170E6B3298E908000C07E66 /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F170E6B1298E908000C07E66 /* TableViewController.xib */; };
 		F170E6BA298EAADC00C07E66 /* FullNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F170E6B8298EAADC00C07E66 /* FullNewsViewController.swift */; };
@@ -27,6 +28,7 @@
 		F157AAB7298EEEF00077E86C /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		F157AAB9298EF9A10077E86C /* NewsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStruct.swift; sourceTree = "<group>"; };
 		F157AABB298EFF650077E86C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F157AABD298F04540077E86C /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
 		F170E6B0298E908000C07E66 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		F170E6B1298E908000C07E66 /* TableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewController.xib; sourceTree = "<group>"; };
 		F170E6B8298EAADC00C07E66 /* FullNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullNewsViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				F170E6B9298EAADC00C07E66 /* FullNewsViewController.xib */,
 				F157AABB298EFF650077E86C /* NetworkManager.swift */,
 				F157AAB9298EF9A10077E86C /* NewsStruct.swift */,
+				F157AABD298F04540077E86C /* NewsData.swift */,
 				F157AAB7298EEEF00077E86C /* Api.swift */,
 				F1C0DAC7298E8BBF0043FCD8 /* Assets.xcassets */,
 				F1C0DAC9298E8BBF0043FCD8 /* LaunchScreen.storyboard */,
@@ -168,6 +171,7 @@
 				F1C0DABC298E8BBE0043FCD8 /* AppDelegate.swift in Sources */,
 				F1C0DAC6298E8BBE0043FCD8 /* NewsApp.xcdatamodeld in Sources */,
 				F170E6B2298E908000C07E66 /* TableViewController.swift in Sources */,
+				F157AABE298F04540077E86C /* NewsData.swift in Sources */,
 				F170E6BE298EC83B00C07E66 /* TableViewCell.swift in Sources */,
 				F170E6BA298EAADC00C07E66 /* FullNewsViewController.swift in Sources */,
 				F157AABA298EF9A10077E86C /* NewsStruct.swift in Sources */,
