@@ -9,23 +9,29 @@ import UIKit
 
 class TableViewController: UITableViewController {
         
-    @IBOutlet weak var button: UIButton!
     var networkManager = NetworkManager()
     var newsData: NewsData?
     var counterCell = Array(repeating: 0, count: 20)
-    
-    @IBAction func next(_ sender: UIButton) {
-        let vc = FullNewsViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
         networkManager.delegate = self
         networkManager.fetchNews()
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
     
+    @IBAction func refreshTapped(_ sender: UIBarButtonItem) {
+        networkManager.fetchNews()
+    }
+    
+    @objc func refresh(_ sender: AnyObject){
+        networkManager.fetchNews()
+        refreshControl?.endRefreshing()
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -57,7 +63,7 @@ class TableViewController: UITableViewController {
             fullNewsViewController.imageUrl = article.urlToImage
             fullNewsViewController.descNews = article.description
             fullNewsViewController.publishedAt = article.publishedAt
-            fullNewsViewController.source = article.source.name
+            fullNewsViewController.source = article.source?.name
             fullNewsViewController.url = article.url
         }
         counterCell[indexPath.row] += 1

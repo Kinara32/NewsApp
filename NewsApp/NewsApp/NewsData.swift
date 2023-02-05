@@ -10,7 +10,7 @@ import Foundation
 struct NewsData {
     let status: String
     let totalResults: Int
-    let articles: [Article]
+    let articles: [Article?]
     init? (newsStruct: NewsStruct) {
         status = newsStruct.status
         totalResults = newsStruct.totalResults

@@ -17,12 +17,14 @@ final class NetworkManager {
     
     func fetchNews() {
         guard let url = URL(string: "https://newsapi.org/v2/everything?q=Apple&from=2023-02-04&sortBy=popularity&apiKey=\(ApiKey)") else {return}
+//        guard let url = URL(string: "https://newsapi.org/v2/top-headlines?country=us&apiKey=\(ApiKey)") else {return}
         let session = URLSession.shared
         session.dataTask(with: url) { (data, response, error) in
+            guard error == nil else {return}
             guard let data = data, let _ = response else {return}
-            print(data)
-            print(response)
-            print(error)
+//            print(data)
+//            print(response)
+//            print(error)
             if let newsData = parseJSON(data: data) {
                 self.delegate?.updateInterface(self, with: newsData)
             }

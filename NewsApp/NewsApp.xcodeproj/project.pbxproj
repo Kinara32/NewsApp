@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F14F43022990365B002BD459 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14F43012990365B002BD459 /* WebViewController.swift */; };
 		F157AAB8298EEEF00077E86C /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = F157AAB7298EEEF00077E86C /* Api.swift */; };
 		F157AABA298EF9A10077E86C /* NewsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F157AAB9298EF9A10077E86C /* NewsStruct.swift */; };
 		F157AABC298EFF650077E86C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F157AABB298EFF650077E86C /* NetworkManager.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F14F43012990365B002BD459 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F157AAB7298EEEF00077E86C /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		F157AAB9298EF9A10077E86C /* NewsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStruct.swift; sourceTree = "<group>"; };
 		F157AABB298EFF650077E86C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				F170E6BD298EC83B00C07E66 /* TableViewCell.xib */,
 				F170E6B8298EAADC00C07E66 /* FullNewsViewController.swift */,
 				F170E6B9298EAADC00C07E66 /* FullNewsViewController.xib */,
+				F14F43012990365B002BD459 /* WebViewController.swift */,
 				F157AABB298EFF650077E86C /* NetworkManager.swift */,
 				F157AAB9298EF9A10077E86C /* NewsStruct.swift */,
 				F157AABD298F04540077E86C /* NewsData.swift */,
@@ -168,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F157AABC298EFF650077E86C /* NetworkManager.swift in Sources */,
+				F14F43022990365B002BD459 /* WebViewController.swift in Sources */,
 				F1C0DABC298E8BBE0043FCD8 /* AppDelegate.swift in Sources */,
 				F1C0DAC6298E8BBE0043FCD8 /* NewsApp.xcdatamodeld in Sources */,
 				F170E6B2298E908000C07E66 /* TableViewController.swift in Sources */,

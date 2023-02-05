@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TableViewController" customModule="NewsApp" customModuleProvider="target">
             <connections>
-                <outlet property="button" destination="vpt-vM-sOd" id="1Sh-Ad-rm4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,15 +20,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <viewLayoutGuide key="safeArea" id="vLr-E1-eTs"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <button key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="vpt-vM-sOd">
+            <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="uyp-2R-HFQ">
                 <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
-                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                <state key="normal" title="Button"/>
-                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                <connections>
-                    <action selector="next:" destination="-1" eventType="touchUpInside" id="y9i-DR-2vS"/>
-                </connections>
-            </button>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                <items>
+                    <navigationItem title="News" id="vaH-eU-GUO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="wQQ-3G-OS1">
+                            <connections>
+                                <action selector="refreshTapped:" destination="-1" id="ftb-II-pzF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </items>
+            </navigationBar>
             <connections>
                 <outlet property="dataSource" destination="-1" id="Tng-2m-Rnh"/>
                 <outlet property="delegate" destination="-1" id="9aC-8N-iBw"/>

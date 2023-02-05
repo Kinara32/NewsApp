@@ -21,9 +21,8 @@
                     <stackView opaque="NO" contentMode="left" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ESX-SR-NhO">
                         <rect key="frame" x="120" y="5" width="374" height="142"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFg-X3-C6t">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFg-X3-C6t">
                                 <rect key="frame" x="0.0" y="0.0" width="374" height="121.66666666666667"/>
-                                <string key="text">Some Text gfdgdfgdfgdfgdfgdf sdaffdsfdsafdsafsdfsdfsdfsfdsafsdfsdafdasfsdfdsfasdfsadfsadfasdfasdfsdafasdf sdfsdafdsa sdfs fdsa sdf saf sf  fsdfas sadfasdfsdfsdfsdfsdfsdfsadfsadfsadfsdafsda</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

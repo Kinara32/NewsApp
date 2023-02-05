@@ -14,7 +14,7 @@ class FullNewsViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var publishedAtLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
-    @IBOutlet weak var urlLabel: UILabel!
+    @IBOutlet weak var linkButton: UIButton!
     
     var titleNews: String?
     var imageUrl: String?
@@ -26,8 +26,6 @@ class FullNewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        
-        // Do any additional setup after loading the view.
     }
 
     private func setupView() {
@@ -35,7 +33,9 @@ class FullNewsViewController: UIViewController {
         descriptionLabel.text = descNews
         publishedAtLabel.text = publishedAt
         sourceLabel.text = source
-        urlLabel.text = url
+        linkButton.titleLabel?.textAlignment = .justified
+        linkButton.setTitle(url, for: .normal)
+        
         DispatchQueue.global().async {
             guard let imageUrl = self.imageUrl else {return}
             guard let urlForImage = URL(string: imageUrl) else {return}
@@ -44,6 +44,12 @@ class FullNewsViewController: UIViewController {
                 self.imageFront.image = UIImage(data: imageData)
             }
         }
+    }
+    
+    @IBAction func linkTapped(_ sender: UIButton) {
+        let webViewController = WebViewController()
+        webViewController.newsUrl = url
+        navigationController?.pushViewController(webViewController, animated: true)
     }
     /*
     // MARK: - Navigation
