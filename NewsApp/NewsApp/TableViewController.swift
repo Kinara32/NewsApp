@@ -12,6 +12,7 @@ class TableViewController: UITableViewController {
     @IBOutlet weak var button: UIButton!
     var networkManager = NetworkManager()
     var newsData: NewsData?
+    var counterCell = Array(repeating: 0, count: 20)
     
     @IBAction func next(_ sender: UIButton) {
         let vc = FullNewsViewController()
@@ -40,8 +41,7 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
 
         configurationCell(for: cell, indexPath)
-        
-        
+
 //        print(newsData?.status)
         return cell
     }
@@ -50,18 +50,35 @@ class TableViewController: UITableViewController {
         return 85
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let fullNewsViewController = FullNewsViewController()
+        if let article = newsData?.articles[indexPath.row] {
+            fullNewsViewController.titleNews = article.title
+            fullNewsViewController.imageUrl = article.urlToImage
+            fullNewsViewController.descNews = article.description
+            fullNewsViewController.publishedAt = article.publishedAt
+            fullNewsViewController.source = article.source.name
+            fullNewsViewController.url = article.url
+        }
+        counterCell[indexPath.row] += 1
+        print(counterCell[indexPath.row])
+        navigationController?.pushViewController(fullNewsViewController, animated: true)
+    }
+    
     private func configurationCell(for cell: TableViewCell, _ indexPath: IndexPath) {
         if let article = newsData?.articles[indexPath.row] {
             cell.titleLabel.text = article.title
             
             DispatchQueue.global().async{
-                guard let imageUrl = URL(string: article.urlToImage) else {return}
+                guard let urlToImage = article.urlToImage else {return}
+                guard let imageUrl = URL(string: urlToImage) else {return}
                 guard let imageData = try? Data(contentsOf: imageUrl) else {return}
                 DispatchQueue.main.async {
                     cell.imageNews.image = UIImage(data: imageData)
                 }
             }
         }
+//        cell.counter.text = String(counterCell[indexPath.row])
     }
     
     /*
@@ -114,7 +131,6 @@ extension TableViewController: NetworkManagerDelegate{
     func updateInterface(_: NetworkManager, with newsData: NewsData) {
         DispatchQueue.main.async {
             self.tableView.reloadData()
-//            self.newsData = newsData
         }
         self.newsData = newsData
     }

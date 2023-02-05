@@ -19,9 +19,10 @@ final class NetworkManager {
         guard let url = URL(string: "https://newsapi.org/v2/everything?q=Apple&from=2023-02-04&sortBy=popularity&apiKey=\(ApiKey)") else {return}
         let session = URLSession.shared
         session.dataTask(with: url) { (data, response, error) in
-            guard let data = data, let response = response else {return}
-//            print(data)
-//            print(response)
+            guard let data = data, let _ = response else {return}
+            print(data)
+            print(response)
+            print(error)
             if let newsData = parseJSON(data: data) {
                 self.delegate?.updateInterface(self, with: newsData)
             }
@@ -36,7 +37,7 @@ private func parseJSON(data:Data) -> NewsData? {
 //        print(newsStruct.totalResults)
         return newsData
     } catch let error {
-        print(error.localizedDescription)
+        print(error)
     }
     return nil
 }
