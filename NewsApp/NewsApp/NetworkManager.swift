@@ -22,9 +22,6 @@ final class NetworkManager {
         session.dataTask(with: url) { (data, response, error) in
             guard error == nil else {return}
             guard let data = data, let _ = response else {return}
-//            print(data)
-//            print(response)
-//            print(error)
             if let newsData = parseJSON(data: data) {
                 self.delegate?.updateInterface(self, with: newsData)
             }
@@ -36,7 +33,6 @@ private func parseJSON(data:Data) -> NewsData? {
     do {
         let newsStruct = try JSONDecoder().decode(NewsStruct.self, from: data)
         guard let newsData = NewsData(newsStruct: newsStruct) else {return nil}
-//        print(newsStruct.totalResults)
         return newsData
     } catch let error {
         print(error)

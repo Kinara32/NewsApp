@@ -8,7 +8,7 @@
 import UIKit
 
 class FullNewsViewController: UIViewController {
-
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageFront: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -27,7 +27,7 @@ class FullNewsViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
-
+    
     private func setupView() {
         titleLabel.text = titleNews
         descriptionLabel.text = descNews
@@ -51,16 +51,4 @@ class FullNewsViewController: UIViewController {
         webViewController.newsUrl = url
         navigationController?.pushViewController(webViewController, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
-
-//extension FullNewsViewController:
